@@ -1,391 +1,652 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vishwajith J - Data Analyst Portfolio showcasing projects in machine learning, data visualization, and AI technologies">
-    <title>Vishwajith J - Data Analyst Portfolio</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- Open Graph Meta Tags for social sharing -->
-    <meta property="og:title" content="Vishwajith J - Data Analyst Portfolio">
-    <meta property="og:description" content="Data Analyst Portfolio showcasing projects in machine learning, data visualization, and AI technologies">
-    <meta property="og:image" content="vishwajith_anime.png">
-    <meta property="og:type" content="website">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="vishwajith_anime.png" as="image">
-    
-    <!-- External CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-brand">Vishwajith J</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#internships">Internships</a>
-                <a href="#skills-certifications">Skills</a>
-                <a href="#achievements">Achievements</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <section id="about">
-        <div class="container">
-            <div class="profile-container fade-in">
-                <div class="profile-image">
-                    <img src="vishwajith_anime.png" alt="Vishwajith J - Profile Picture of a Data Analyst" loading="lazy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vishwajith J - Data Analyst Portfolio</title>
+        <!-- Security Headers -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-Frame-Options" content="DENY">
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header>
+            <nav id="navbar">
+                <div class="logo">Vishwajith J</div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#internships">Internships</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="bio">
-                    <h1>Hello, I'm Vishwajith J</h1>
-                    <h2>Aspiring Data Analyst</h2>
-                    <p>Passionate about transforming raw data into meaningful insights. Currently pursuing advanced studies in Data Analytics with a focus on machine learning and statistical analysis.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer" aria-label="Vishwajith's GitHub Profile">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/vishwajith-j-736652248" target="_blank" rel="noopener noreferrer" aria-label="Vishwajith's LinkedIn Profile">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                        <a href="mailto:jvishwajith4@gmail.com" aria-label="Send Email to Vishwajith">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </a>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Notification Container -->
+        <div
+            id="notification-container"
+            class="notification-bottom-right"
+        ></div>
+
+        <!-- About Section -->
+        <section id="about" class="section-white fade-in">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-container">
+                        <div class="profile-frame">
+                            <div class="profile-pic">
+                                <img
+                                    src="vishwajith_anime.png"
+                                    alt="Vishwajith J Profile Picture"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h1>Vishwajith J</h1>
+                        <h2>Aspiring Data Analyst</h2>
+                        <p>
+                            Passionate about transforming raw data into
+                            meaningful insights. Currently pursuing advanced
+                            studies in Data Analytics with a focus on machine
+                            learning and statistical analysis.
+                        </p>
+                        <div class="social-links">
+                            <a
+                                href="https://github.com/jvishwajith"
+                                class="social-btn black-icon"
+                                target="_blank"
+                            >
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a
+                                href="https://linkedin.com/in/vishwajith-j-736652248"
+                                class="social-btn black-icon"
+                                target="_blank"
+                            >
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=jvishwajith4@gmail.com"
+                                class="social-btn black-icon"
+                                target="_blank"
+                            >
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <button class="resume-btn" id="download-resume">
+                                <i class="fas fa-download"></i>
+                                Download Resume
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <section id="projects">
-        <div class="container">
-            <h2>Academic and Internship projects</h2>
-            <div class="projects-grid fade-in">
-                <!-- AI-Powered Relocation Chatbot with RAG Integration -->
-                <div class="project-card">
-                    <h3>AI-Powered Relocation Chatbot with RAG Integration</h3>
-                    <p>Developed a relocation service chatbot using LangChain, LangGraph, and Flask on Azure. Integrated Retrieval-Augmented Generation (RAG) with external APIs (Tavily, Crew) for dynamic, personalized, and scalable assistance.</p>
-                    <p><strong>Technologies:</strong> LangChain, LangGraph, Flask, Azure, RAG, Tavily API, Crew API</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer">
+        <!-- Projects Section -->
+        <section id="projects" class="section-blue fade-in">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-description">
+                    Explore my data analysis and machine learning projects that
+                    showcase my technical expertise and problem-solving
+                    abilities.
+                </p>
+                <div class="projects-grid">
+                    <div class="project-card sliding-card">
+                        <h3>
+                            AI-Powered Relocation Chatbot with RAG Integration
+                        </h3>
+                        <p>
+                            Developed a relocation service chatbot using
+                            LangChain, LangGraph, and Flask on Azure. Integrated
+                            Retrieval-Augmented Generation (RAG) with external
+                            APIs (Tavily, Crew) for dynamic, personalized, and
+                            scalable assistance.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Technologies:</div>
+                            <div class="tech-items">
+                                LangChain, LangGraph, Flask, Azure, RAG, Tavily
+                                API, Crew API
+                            </div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="AI-Powered Relocation Chatbot"
+                            data-repo-url=""
+                        >
                             <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
+                            View Repo
+                        </button>
                     </div>
-                </div>
-                <!-- Automated Invoice Processing and Predictive Inventory Management -->
-                <div class="project-card">
-                    <h3>Automated Invoice Processing and Predictive Inventory Management</h3>
-                    <p>Implemented YOLO V8 and OCR technology to automate invoice data entry, reducing manual processing time by 60 hours per week and improving data accuracy by 85%.</p>
-                    <p><strong>Technologies:</strong> YOLO V8, OCR, Python, TensorFlow</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith/Automated-Invoice-Processing" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Identifying Most Influential Student Learning Obstacles -->
-                <div class="project-card">
-                    <h3>Identifying Most Influential Student Learning Obstacles</h3>
-                    <p>Implemented a data-driven project analyzing social media usage, infrastructure quality, course materials, and language barriers to predict and mitigate their impact on student learning outcomes in the educational sector.</p>
-                    <p><strong>Algorithms Used:</strong> Random Forest Regressor, Decision Tree Regressor, XGBoost Regressor</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Data Visualization Dashboard -->
-                <div class="project-card">
-                    <h3>Data Visualization Dashboard</h3>
-                    <p>Interactive dashboard using Python and Streamlit for real-time data analysis.</p>
-                    <p><strong>Technologies:</strong> Python, Pandas, Streamlit</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Machine Learning Model -->
-                <div class="project-card">
-                    <h3>Machine Learning Model</h3>
-                    <p>Predictive analysis model for customer churn prediction.</p>
-                    <p><strong>Technologies:</strong> Scikit-learn, TensorFlow</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- SQL Database Design -->
-                <div class="project-card">
-                    <h3>SQL Database Design</h3>
-                    <p>Optimized database schema for e-commerce platform.</p>
-                    <p><strong>Technologies:</strong> MySQL, PostgreSQL</p>
-                    <div class="github-link">
-                        <a href="https://github.com/jvishwajith" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>View Repo</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-      
 
-    <section id="internships">
-        <div class="container">
-          <h2>Internships</h2>
-          <div class="timeline fade-in">
-            <!-- Internship 1: Optical Business Solutions -->
-            <div class="timeline-item">
-              <h3>Optisol Business Solutions</h3>
-              <p> (June 2024 - December 2024)</p>
-              <ul>
-                <li>Developed an AI-powered chatbot for relocation service management.</li>
-                <li>Utilized frameworks like LangChain for integrating AI-driven services.</li>
-                <li>Worked with JSON file formats and vector databases to store and process data.</li>
-              </ul>
-            </div>
-            <!-- Internship 2: Virudhunagar Textile Mills -->
-            <div class="timeline-item">
-              <h3>Virudhunagar Textile Mills (VTM) Pvt Ltd</h3>
-              <p> (December 2023 - January 2024)</p>
-              <ul>
-                <li>Developed BI and Streamlit dashboards for customer purchase prediction.</li>
-                <li>Created sales prediction models and optimized supply chain management processes.</li>
-                <li>Provided actionable insights using data analysis for better decision-making.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    </section>
-      
+                    <div class="project-card sliding-card">
+                        <h3>
+                            Automated Invoice Processing and Predictive
+                            Inventory Management
+                        </h3>
+                        <p>
+                            Implemented YOLO V8 and OCR technology to automate
+                            invoice data entry, reducing manual processing time
+                            by 60 hours per week and improving data accuracy by
+                            85%.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Technologies:</div>
+                            <div class="tech-items">
+                                YOLO V8, OCR, Python, TensorFlow
+                            </div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="Automated Invoice Processing"
+                            data-repo-url="https://github.com/jvishwajith/Automated-Invoice-Processing"
+                        >
+                            <i class="fab fa-github"></i>
+                            View Repo
+                        </button>
+                    </div>
 
-    <section id="skills-certifications">
-        <div class="container">
-            <h2>Skills & Certifications</h2>
-            <div class="split-container">
-                <!-- Skills Section -->
-                <div class="skills-container fade-in">
-                    <div class="skill">
-                        <h3><i class="fas fa-code"></i> Python</h3>
-                        <p class="skill-tools">Code Editors : VS Code, Jupyter Notebook</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90">
-                                <span class="progress-text">90%</span>
+                    <div class="project-card sliding-card">
+                        <h3>
+                            Identifying Most Influential Student Learning
+                            Obstacles
+                        </h3>
+                        <p>
+                            Analyzed social media usage, infrastructure quality,
+                            course materials, and language barriers to predict
+                            impact on student learning outcomes.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Algorithms:</div>
+                            <div class="tech-items">
+                                Random Forest Regressor, Decision Tree
+                                Regressor, XGBoost Regressor
+                            </div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="Student Learning Obstacles Analysis"
+                            data-repo-url=""
+                        >
+                            <i class="fab fa-github"></i>
+                            View Repo
+                        </button>
+                    </div>
+
+                    <div class="project-card sliding-card">
+                        <h3>Data Visualization Dashboard</h3>
+                        <p>
+                            Interactive dashboard using Python and Streamlit for
+                            real-time data analysis.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Technologies:</div>
+                            <div class="tech-items">
+                                Python, Pandas, Streamlit
+                            </div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="Data Visualization Dashboard"
+                            data-repo-url=""
+                        >
+                            <i class="fab fa-github"></i>
+                            View Repo
+                        </button>
+                    </div>
+
+                    <div class="project-card sliding-card">
+                        <h3>Machine Learning Model</h3>
+                        <p>
+                            Predictive analysis model for customer churn
+                            prediction.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Technologies:</div>
+                            <div class="tech-items">
+                                Scikit-learn, TensorFlow
+                            </div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="Machine Learning Model"
+                            data-repo-url=""
+                        >
+                            <i class="fab fa-github"></i>
+                            View Repo
+                        </button>
+                    </div>
+
+                    <div class="project-card sliding-card">
+                        <h3>SQL Database Design</h3>
+                        <p>
+                            Optimized database schema for e-commerce platform.
+                        </p>
+                        <div class="tech-list">
+                            <div class="tech-heading">Technologies:</div>
+                            <div class="tech-items">MySQL, PostgreSQL</div>
+                        </div>
+                        <button
+                            class="repo-btn"
+                            data-name="SQL Database Design"
+                            data-repo-url=""
+                        >
+                            <i class="fab fa-github"></i>
+                            View Repo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships Section -->
+        <section id="internships" class="section-white fade-in">
+            <div class="container">
+                <h2 class="section-title">Internships</h2>
+                <p class="section-description">
+                    Professional experience gained through internships in data
+                    analytics and business intelligence.
+                </p>
+                <div class="internships-container">
+                    <div class="internship-card sliding-card">
+                        <div class="internship-info">
+                            <h3>Optisol Business Solutions</h3>
+                            <div class="internship-duration">
+                                Jun 2024 – Dec 2024
+                            </div>
+                            <ul class="internship-tasks">
+                                <li>
+                                    Developed an AI-powered chatbot for
+                                    relocation service management
+                                </li>
+                                <li>
+                                    Utilized LangChain, JSON, vector databases,
+                                    Azure
+                                </li>
+                                <li>
+                                    Implemented advanced natural language
+                                    processing techniques
+                                </li>
+                            </ul>
+                            <button
+                                class="certificate-btn"
+                                data-name="Optisol Business Solutions Certificate"
+                                data-cert-url=""
+                            >
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="internship-card sliding-card">
+                        <div class="internship-info">
+                            <h3>Virudhunagar Textile Mills (VTM) Pvt Ltd</h3>
+                            <div class="internship-duration">
+                                Dec 2023 – Jan 2024
+                            </div>
+                            <ul class="internship-tasks">
+                                <li>Developed BI and Streamlit dashboards</li>
+                                <li>Created sales prediction models</li>
+                                <li>Optimized supply chain processes</li>
+                            </ul>
+                            <button
+                                class="certificate-btn"
+                                data-name="VTM Certificate"
+                                data-cert-url=""
+                            >
+                                View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Certifications Section -->
+        <section id="skills" class="section-blue fade-in">
+            <div class="container">
+                <h2 class="section-title">Skills & Certifications</h2>
+                <p class="section-description">
+                    Technical expertise and professional certifications in data
+                    analytics and machine learning.
+                </p>
+                <div class="skills-certs-container">
+                    <div class="skills-container">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span
+                                        >Python (VS Code, Jupyter
+                                        Notebook)</span
+                                    >
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 90%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span>SQL (MySQL, PostgreSQL)</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 85%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span
+                                        >Data Visualization (Power BI,
+                                        Matplotlib)</span
+                                    >
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 80%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span
+                                        >Prompt Engineering & RAG (LangChain,
+                                        LangGraph)</span
+                                    >
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 75%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span
+                                        >Machine Learning (TensorFlow,
+                                        Scikit-learn)</span
+                                    >
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 75%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item sliding-card">
+                                <div class="skill-name">
+                                    <span
+                                        >API Development (Flask, RESTful
+                                        APIs)</span
+                                    >
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div
+                                        class="skill-progress-bar"
+                                        style="width: 70%"
+                                    ></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-    
-                    <div class="skill">
-                        <h3><i class="fas fa-database"></i> SQL</h3>
-                        <p class="skill-tools">DBMS : MySQL, PostgreSQL</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85">
-                                <span class="progress-text">85%</span>
+
+                    <div class="certifications-container">
+                        <h3>Certifications</h3>
+                        <div class="certification-items">
+                            <div class="certification-item sliding-card">
+                                <div class="cert-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <p>
+                                    LangChain for LLM Application Development -
+                                    DeepLearning.AI - 100%
+                                </p>
+                            </div>
+
+                            <div class="certification-item sliding-card">
+                                <div class="cert-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <p>
+                                    LangChain: Chat with Your Data -
+                                    DeepLearning.AI - 100%
+                                </p>
+                            </div>
+
+                            <div class="certification-item sliding-card">
+                                <div class="cert-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <p>
+                                    Python for Data Science, AI & Development -
+                                    IBM - 100%
+                                </p>
+                            </div>
+
+                            <div class="certification-item sliding-card">
+                                <div class="cert-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <p>Machine Learning with Python - IBM - 80%</p>
+                            </div>
+
+                            <div class="certification-item sliding-card">
+                                <div class="cert-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <p>
+                                    SQL Beginner to Advanced - Code-Basics - 75%
+                                </p>
                             </div>
                         </div>
+                        <button
+                            class="view-all-cert-btn"
+                            data-name="All Certifications"
+                            data-cert-url=""
+                        >
+                            View All Certificates
+                        </button>
                     </div>
-    
-                    <div class="skill">
-                        <h3><i class="fas fa-server"></i> API Development</h3>
-                        <p class="skill-tools">Flask, RESTful APIs</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="70">
-                                <span class="progress-text">70%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section-white fade-in">
+            <div class="container">
+                <h2 class="section-title">Achievements</h2>
+                <p class="section-description">
+                    Recognition and awards received in various competitions and
+                    events.
+                </p>
+                <div class="achievements-grid">
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-date">Mar 30, 2023</div>
+                        <h3>1st Place - Handball</h3>
+                        <p>Inter-Department Competition, TCE</p>
+                    </div>
+
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-date">Feb 15, 2023</div>
+                        <h3>2nd Place - Tech Quiz</h3>
+                        <p>American College BYTES 2K23</p>
+                    </div>
+
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-date">Feb 8, 2025</div>
+                        <h3>2nd Place - Badminton</h3>
+                        <p>Inter-department Badminton League Match</p>
+                    </div>
+
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-date">Aug 12-14, 2022</div>
+                        <h3>3rd Place - Hackathon</h3>
+                        <p>Madurai Hackathon 2022</p>
+                    </div>
+
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-date">Feb 15, 2023</div>
+                        <h3>3rd Place - Code Wars</h3>
+                        <p>TCE</p>
+                    </div>
+
+                    <div class="achievement-card sliding-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="achievement-date">Jan 28, 2023</div>
+                        <h3>6th Place - Paper Presentation</h3>
+                        <p>IITM Hack Cidents</p>
+                    </div>
+
+                    <div class="view-all-achievement-btn-container">
+                        <button
+                            class="view-all-achievement-btn"
+                            data-name="All Achievement Certificates"
+                            data-cert-url=""
+                        >
+                            View All Achievement Certificates
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-blue fade-in">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-description">
+                    Get in touch for collaboration opportunities or discussions
+                    about data analytics.
+                </p>
+                <div class="contact-wrapper">
+                    <div class="contact-container">
+                        <div class="contact-item sliding-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Phone</h4>
+                                <a href="tel:+919790228681">+91 9790228681</a>
                             </div>
                         </div>
-                    </div>
-    
-                    <div class="skill">
-                        <h3><i class="fas fa-robot"></i> Prompt Engineering & RAG</h3>
-                        <p class="skill-tools">LangChain, LangGraph, ChromaDB , Pinecone</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75">
-                                <span class="progress-text">75%</span>
+
+                        <div class="contact-item sliding-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Email</h4>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jvishwajith4@gmail.com" target="_blank"
+                                    >jvishwajith4@gmail.com</a
+                                >
                             </div>
                         </div>
-                    </div>
-    
-                    <div class="skill">
-                        <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
-                        <p class="skill-tools">Tools : Power BI, Matplotlib</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80">
-                                <span class="progress-text">80%</span>
+
+                        <div class="contact-item sliding-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>WhatsApp</h4>
+                                <a
+                                    href="https://wa.me/919790228681"
+                                    target="_blank"
+                                    >+91 9790228681</a
+                                >
                             </div>
                         </div>
-                    </div>
-    
-                    <div class="skill">
-                        <h3><i class="fas fa-brain"></i> Machine Learning</h3>
-                        <p class="skill-tools">TensorFlow, Scikit-learn</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75">
-                                <span class="progress-text">75%</span>
+
+                        <div class="contact-item sliding-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>GitHub</h4>
+                                <a
+                                    href="https://github.com/jvishwajith"
+                                    target="_blank"
+                                    >jvishwajith</a
+                                >
+                            </div>
+                        </div>
+
+                        <div class="contact-item sliding-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>LinkedIn</h4>
+                                <a
+                                    href="https://linkedin.com/in/vishwajith-j-736652248"
+                                    target="_blank"
+                                    >vishwajith-j</a
+                                >
                             </div>
                         </div>
                     </div>
                 </div>
-    
-                <!-- Certifications Section -->
-                <div class="certifications-container fade-in">
-                    <div class="certification">
-                        <h3><i class="fas fa-award"></i> LangChain for LLM Application Development</h3>
-                        <p class="cert-issuer">DeepLearning.AI</p>
-                        <div class="cert-bar">
-                            <div class="cert-progress" data-progress="100">
-                                <span class="progress-text">100%</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="certification">
-                        <h3><i class="fas fa-award"></i> LangChain: Chat with Your Data</h3>
-                        <p class="cert-issuer">DeepLearning.AI</p>
-                        <div class="cert-bar">
-                            <div class="cert-progress" data-progress="100">
-                                <span class="progress-text">100%</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="certification">
-                        <h3><i class="fas fa-award"></i> Machine Learning with Python</h3>
-                        <p class="cert-issuer">IBM</p>
-                        <div class="cert-bar">
-                            <div class="cert-progress" data-progress="80">
-                                <span class="progress-text">80%</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="certification">
-                        <h3><i class="fas fa-award"></i> Python for Data Science, AI & Development</h3>
-                        <p class="cert-issuer">IBM</p>
-                        <div class="cert-bar">
-                            <div class="cert-progress" data-progress="100">
-                                <span class="progress-text">100%</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="certification">
-                        <h3><i class="fas fa-award"></i> SQL Beginner to Advanced</h3>
-                        <p class="cert-issuer">Code-Basics</p>
-                        <div class="cert-bar">
-                            <div class="cert-progress" data-progress="75">
-                                <span class="progress-text">75%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="achievements">
-      <div class="container">
-          <h2><i class="fas fa-trophy"></i> Achievements</h2>
-          <div class="achievements-grid">
-              <!-- 1st Place -->
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-medal"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Mar 30, 2023</span>
-                      <p>Secured 1st place in HANDBALL - INTER-DEPARTMENT_TCE</p>
-                  </div>
-              </div>
-  
-              <!-- 2nd Places -->
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-award"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Feb 15, 2023</span>
-                      <p>Secured 2nd place in Tech Quiz, American College - BYTES 2K23</p>
-                  </div>
-              </div>
-  
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-trophy"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Feb 8, 2025</span>
-                      <p>Secured 2nd place in Inter department Badminton League Match</p>
-                  </div>
-              </div>
-  
-              <!-- 3rd Places -->
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-laptop-code"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Aug 12-14, 2022</span>
-                      <p>Secured 3rd Place in Madurai Hackathon 2022</p>
-                  </div>
-              </div>
-  
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-code"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Feb 15, 2023</span>
-                      <p>Secured 3rd place in Code Wars: Python OOP's Challenge, Dept of CSBS, TCE</p>
-                  </div>
-              </div>
-  
-              <!-- 6th Place -->
-              <div class="achievement-card">
-                  <span class="achievement-icon"><i class="fas fa-file-powerpoint"></i></span>
-                  <div class="achievement-content">
-                      <span class="achievement-date">Jan 28, 2023</span>
-                      <p>Secured 6th Place in IITM Paper Presentation - HACK CIDENTS</p>
-                  </div>
-              </div>
-          </div>
-       </div>
-    </section>
-      
-
-    <section id="contact">
-        <div class="container">
-          <h2>Contact</h2>
-          <!-- Contact Boxes Container -->
-          <div class="contact-boxes fade-in">
-            <!-- Contact Number Box -->
-            <div class="contact-box">
-              <a href="tel:+919790228681">
-                <i class="fas fa-phone-alt"></i> +91 9790228681
-              </a>
-            </div>
-            <!-- Email ID Box -->
-            <div class="contact-box">
-              <a href="mailto:jvishwajith4@gmail.com">
-                <i class="fas fa-envelope"></i> jvishwajith4@gmail.com
-              </a>
-            </div>
-          </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Vishwajith J. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="scripts.js" defer></script>
-</body>
+        <script src="scripts.js"></script>
+    </body>
 </html>
