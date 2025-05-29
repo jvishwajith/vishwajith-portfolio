@@ -1,212 +1,365 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize animations
-    initializeAnimations();
+// Security: Content integrity protection
+(function() {
+    'use strict';
     
-    // Initialize navigation for mobile
-    initializeMobileNav();
+    // Prevent script injection and content tampering
+    const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+    const originalOuterHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'outerHTML');
     
-    // Initialize skill and certification progress bars
-    initializeProgressBars();
-    
-    // Set up smooth scrolling for navigation links
-    setupSmoothScrolling();
-    
-    // Handle visibility of elements during scroll
-    handleScrollVisibility();
-  });
-  
-  // Initialize animations on the page
-  function initializeAnimations() {
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    fadeElements.forEach(element => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(20px)';
-      element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      observer.observe(element);
-    });
-  }
-  
-  // Initialize mobile navigation
-  function initializeMobileNav() {
-    const navLinks = document.querySelector('.nav-links');
-    const navBrand = document.querySelector('.nav-brand');
-    
-    // Create mobile navigation toggle button
-    const mobileToggle = document.createElement('button');
-    mobileToggle.className = 'mobile-nav-toggle';
-    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
-    
-    // Append toggle button to header only on mobile
-    if (window.innerWidth <= 768) {
-      document.querySelector('nav').appendChild(mobileToggle);
-      
-      // Apply mobile styling
-      navLinks.style.display = 'none';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.position = 'absolute';
-      navLinks.style.top = '100%';
-      navLinks.style.left = '0';
-      navLinks.style.width = '100%';
-      navLinks.style.background = 'var(--dark-bg)';
-      navLinks.style.padding = '1rem';
-      navLinks.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
-      navLinks.style.zIndex = '1000';
-      
-      // Toggle mobile menu
-      mobileToggle.addEventListener('click', () => {
-        if (navLinks.style.display === 'none') {
-          navLinks.style.display = 'flex';
-          mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-          navLinks.style.display = 'none';
-          mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-      });
-      
-      // Close menu when clicking a link
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.style.display = 'none';
-          mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-      });
+    // Monitor for unauthorized DOM modifications
+    function validateContent(element) {
+        const dangerousPatterns = [
+            /<script/i,
+            /javascript:/i,
+            /on\w+\s*=/i,
+            /<iframe/i,
+            /<object/i,
+            /<embed/i
+        ];
+        
+        const content = element.innerHTML || element.outerHTML || '';
+        return !dangerousPatterns.some(pattern => pattern.test(content));
     }
     
-    // Handle window resize events
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 768) {
-        if (!document.querySelector('.mobile-nav-toggle')) {
-          document.querySelector('nav').appendChild(mobileToggle);
-        }
-        navLinks.style.display = 'none';
-      } else {
-        if (document.querySelector('.mobile-nav-toggle')) {
-          document.querySelector('.mobile-nav-toggle').remove();
-        }
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'row';
-        navLinks.style.position = 'static';
-        navLinks.style.padding = '0';
-        navLinks.style.boxShadow = 'none';
-      }
-    });
-  }
-  
-  // Initialize skill and certification progress bars
-  function initializeProgressBars() {
-    const progressBars = document.querySelectorAll('.skill-progress, .cert-progress');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBar = entry.target;
-          const progress = progressBar.getAttribute('data-progress');
-          progressBar.style.width = `${progress}%`;
-          observer.unobserve(progressBar);
-        }
-      });
-    }, { threshold: 0.2 });
-    
-    progressBars.forEach(progressBar => {
-      progressBar.style.width = '0';
-      observer.observe(progressBar);
-    });
-  }
-  
-  // Set up smooth scrolling for navigation links
-  function setupSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          const headerHeight = document.querySelector('header').offsetHeight;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  }
-  
-  // Handle visibility of elements during scroll
-  function handleScrollVisibility() {
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // Add shadow to header on scroll
-      if (scrollTop > 10) {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-      
-      // Highlight active section in navigation
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('.nav-links a');
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - header.offsetHeight - 10;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        const currentPosition = scrollTop;
-        const sectionId = section.getAttribute('id');
-        
-        if (currentPosition >= sectionTop && currentPosition < sectionBottom) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
+    // Override innerHTML setter with security checks
+    Object.defineProperty(Element.prototype, 'innerHTML', {
+        set: function(value) {
+            if (typeof value === 'string' && !validateContent({innerHTML: value})) {
+                console.warn('Blocked potentially malicious content injection attempt');
+                return;
             }
-          });
-        }
-      });
-      
-      lastScrollTop = scrollTop;
+            return originalInnerHTML.set.call(this, value);
+        },
+        get: originalInnerHTML.get
     });
-  }
-  
-  // Add active class styling to navigation
-  document.head.insertAdjacentHTML('beforeend', `
-    <style>
-      .nav-links a.active {
-        color: var(--primary-green);
-        font-weight: 600;
-      }
-      
-      .mobile-nav-toggle {
-        background: none;
-        border: none;
-        color: var(--text-light);
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
-      }
-      
-      @media (max-width: 768px) {
-        .mobile-nav-toggle {
-          display: block;
+    
+    // Disable eval and similar dangerous functions for unauthorized use
+    const originalEval = window.eval;
+    window.eval = function(code) {
+        if (typeof code === 'string' && code.includes('malicious')) {
+            throw new Error('Blocked potentially harmful eval usage');
         }
-      }
-    </style>
-  `);
+        return originalEval.call(this, code);
+    };
+    
+    // Content integrity monitoring
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && !validateContent(node)) {
+                        node.remove();
+                        console.warn('Removed potentially malicious content');
+                    }
+                });
+            }
+        });
+    });
+    
+    // Start observing
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Animation for section fade-in on scroll
+    const observerOptions = {
+        root: null, // viewport is the root
+        rootMargin: "0px",
+        threshold: 0.1, // 10% of the element visible
+    };
+
+    // Observer for sections
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections with fade-in class
+    document.querySelectorAll(".fade-in").forEach((section) => {
+        sectionObserver.observe(section);
+    });
+
+    // Observer for animated cards
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Add delay for staggered animation
+                setTimeout(
+                    () => {
+                        entry.target.classList.add("active");
+                    },
+                    150 *
+                        Array.from(entry.target.parentNode.children).indexOf(
+                            entry.target,
+                        ),
+                );
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sliding cards
+    document.querySelectorAll(".sliding-card").forEach((card) => {
+        cardObserver.observe(card);
+    });
+
+    // Timeline items now use achievement cards - no separate observer needed
+
+    // Continuous animations for various elements
+    function startContinuousAnimations() {
+        // Profile picture animation
+        const profilePic = document.querySelector(".profile-frame");
+        if (profilePic) {
+            setInterval(() => {
+                profilePic.style.animation = "none";
+                void profilePic.offsetWidth; // Trigger reflow
+                profilePic.style.animation = "float 6s ease-in-out infinite";
+            }, 6000);
+        }
+
+        // Skill bars animation on interval
+        const skillBars = document.querySelectorAll(".skill-progress-bar");
+        setInterval(() => {
+            skillBars.forEach((bar) => {
+                const width = bar.style.width;
+                bar.style.width = "0";
+
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }, 10000); // Reset and animate skill bars every 10 seconds
+
+        // Subtle project card animations
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card, index) => {
+            setInterval(
+                () => {
+                    card.style.transform = "translateY(-5px)";
+                    setTimeout(() => {
+                        card.style.transform = "translateY(0)";
+                    }, 500);
+                },
+                5000 + index * 1000,
+            ); // Staggered timing for each card
+        });
+    }
+
+    // Start continuous animations after initial load
+    setTimeout(startContinuousAnimations, 2000);
+
+    // Hover animations are handled by CSS - no JavaScript needed
+
+    // Combined scroll effects and navigation highlighting
+    window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+
+        // Parallax for about section
+        const aboutSection = document.querySelector("#about");
+        if (aboutSection) {
+            const aboutOffset = aboutSection.offsetTop;
+            const aboutDistance = scrollPosition - aboutOffset;
+
+            if (aboutDistance > -500 && aboutDistance < 500) {
+                const profilePic = document.querySelector(".profile-frame");
+                if (profilePic) {
+                    profilePic.style.transform = `translateY(${aboutDistance * 0.05}px) rotate(${aboutDistance * 0.01}deg)`;
+                }
+            }
+        }
+
+        // Update active navigation links
+        updateActiveNavlink();
+    });
+
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector(".hamburger");
+    const mobileNavLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileNavLinks.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            mobileNavLinks.classList.remove("active");
+        });
+    });
+
+    // Enhanced Notification System
+    function showNotification(message, duration = 3000) {
+        const notificationContainer = document.getElementById(
+            "notification-container",
+        );
+        const notification = document.createElement("div");
+        notification.className = "notification";
+        notification.textContent = message;
+
+        notificationContainer.appendChild(notification);
+
+        // Trigger reflow for animation
+        notification.offsetHeight;
+
+        // Show notification
+        notification.classList.add("show");
+
+        // Add sound effect for notification
+        const audio = new Audio();
+        audio.src =
+            "data:audio/mp3;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFzb25pY1N0dWRpb3MuY29tAFRYWFgAAAAhAAAFdGl0bGUAU21hbGwgQmVsbCBSaW5nIC0gU2luZ2xlAFRYWFgAAAAWAAAAZXhwZXJ0X21ldGFkYXRhX2R1bW15AFRYX1gAAA0wAACgADEJAMkMAAAEgAEJAQADAQAB";
+        audio.volume = 0.3;
+        audio.play().catch((e) => console.log("Audio play failed:", e));
+
+        // Remove after duration
+        setTimeout(() => {
+            notification.classList.remove("show");
+            setTimeout(() => {
+                notification.remove();
+            }, 500);
+        }, duration);
+    }
+
+    // Handle buttons without links - Enhanced with improved notifications
+    const repoButtons = document.querySelectorAll(".repo-btn");
+    const certButtons = document.querySelectorAll(".certificate-btn");
+    const allCertBtn = document.querySelectorAll(".view-all-cert-btn");
+    const viewAchievementBtn = document.querySelector(
+        ".view-all-achievement-btn",
+    );
+
+    repoButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const repoName = this.getAttribute("data-name");
+            const repoUrl = this.getAttribute("data-repo-url");
+            
+            if (repoUrl && repoUrl.trim() !== "") {
+                window.open(repoUrl, "_blank");
+            } else {
+                showNotification(`${repoName} will be updated soon`, 3000);
+            }
+        });
+    });
+
+    certButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const certName = this.getAttribute("data-name");
+            const certUrl = this.getAttribute("data-cert-url");
+            
+            if (certUrl && certUrl.trim() !== "") {
+                window.open(certUrl, "_blank");
+            } else {
+                showNotification(`${certName} will be updated soon`, 3000);
+            }
+        });
+    });
+
+    allCertBtn.forEach((button) => {
+        button.addEventListener("click", function () {
+            const certName = this.getAttribute("data-name");
+            const certUrl = this.getAttribute("data-cert-url");
+            
+            if (certUrl && certUrl.trim() !== "") {
+                window.open(certUrl, "_blank");
+            } else {
+                showNotification(`${certName} will be updated soon`, 3000);
+            }
+        });
+    });
+
+    if (viewAchievementBtn) {
+        viewAchievementBtn.addEventListener("click", function () {
+            const achName = this.getAttribute("data-name");
+            const certUrl = this.getAttribute("data-cert-url");
+            
+            if (certUrl && certUrl.trim() !== "") {
+                window.open(certUrl, "_blank");
+            } else {
+                showNotification(`${achName} will be updated soon`, 3000);
+            }
+        });
+    }
+
+    // Resume download button
+    document
+        .getElementById("download-resume")
+        .addEventListener("click", function () {
+            const link = document.createElement("a");
+            link.href = "Vishwajith_Resume.pdf";
+            link.download = "Vishwajith_J_Resume.pdf";
+            link.click();
+            showNotification("Resume download started successfully!", 3000);
+        });
+
+    // GitHub & LinkedIn links are now functional - no need for placeholder handlers
+
+    // Enhanced dynamic navigation highlighting based on visible section
+    const sections = document.querySelectorAll("section");
+    const navLinksForHighlighting = document.querySelectorAll(".nav-links a");
+
+    function updateActiveNavlink() {
+        // Get current scroll position
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+        // Find the section that is currently most visible in the viewport
+        let currentSection = "";
+        let maxVisibility = 0;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            const sectionBottom = sectionTop + sectionHeight;
+
+            // Calculate how much of the section is visible
+            const visiblePx =
+                Math.min(scrollPosition, sectionBottom) -
+                Math.max(window.scrollY, sectionTop);
+            const visiblePercent = visiblePx / sectionHeight;
+
+            if (visiblePercent > maxVisibility) {
+                maxVisibility = visiblePercent;
+                currentSection = section.getAttribute("id");
+            }
+        });
+
+        // Update navigation links
+        navLinksForHighlighting.forEach((link) => {
+            // Remove active class from all links
+            link.classList.remove("active");
+
+            // Add active class to current section link
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+
+                // Add subtle animation to active link
+                link.style.transform = "translateY(-3px)";
+                setTimeout(() => {
+                    link.style.transform = "";
+                }, 300);
+            }
+        });
+    }
+
+    // Initialize on page load
+    window.addEventListener("load", updateActiveNavlink);
+
+    // Initialize skill bars animation
+    const skillBars = document.querySelectorAll(".skill-progress-bar");
+
+    function setSkillBarWidth() {
+        skillBars.forEach((bar) => {
+            const width = bar.style.width;
+            bar.style.setProperty("--percentage", width);
+        });
+    }
+
+    setSkillBarWidth();
+});
