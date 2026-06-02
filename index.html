@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vishwajith J - Data Analyst Portfolio</title>
+        <title>Vishwajith J - AI/ML Engineer</title>
         <!-- Security Headers -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
         <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -12,7 +12,7 @@
         <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
         <link rel="stylesheet" href="styles.css" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
         <link
@@ -50,12 +50,19 @@
         ></div>
 
         <!-- About Section -->
-        <section id="about" class="section-white fade-in">
-            <div class="container">
-                <div class="about-content">
-                    <div class="profile-container">
-                        <div class="profile-frame">
-                            <div class="profile-pic">
+        <section id="about" class="hero-section fade-in">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-profile">
+                        <div class="profile-rings">
+                            <div class="ring-dashed"></div>
+                            <div class="ring-solid"></div>
+                            <div class="ring-dots">
+                                <div class="dot top-right"></div>
+                                <div class="dot bottom-left"></div>
+                                <div class="dot center-right"></div>
+                            </div>
+                            <div class="profile-image">
                                 <img
                                     src="vishwajith_anime.png"
                                     alt="Vishwajith J Profile Picture"
@@ -63,44 +70,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="about-text">
-                        <h1>Vishwajith J</h1>
-                        <h2>Aspiring Data Analyst</h2>
-                        <p>
-                            Passionate about transforming raw data into
-                            meaningful insights. Currently pursuing advanced
-                            studies in Data Analytics with a focus on machine
-                            learning and statistical analysis.
+                    <div class="hero-text">
+                        <div class="badge">
+                            <span class="badge-dot"></span>
+                            AI/ML Engineer
+                        </div>
+                        <h1 class="hero-name">Vishwajith J</h1>
+                        <h2 class="hero-role">AI/ML Engineer</h2>
+                        <p class="hero-description">
+                            Passionate about turning data into decisions that matter.
+                            Building intelligent systems with ML, NLP, and AI &mdash;
+                            where every question is a new solution worth engineering.
                         </p>
-                        <div class="social-links">
+                        <div class="hero-actions">
                             <a
                                 href="https://github.com/jvishwajith"
-                                class="social-btn black-icon"
+                                class="hero-social-btn"
                                 target="_blank"
                             >
                                 <i class="fab fa-github"></i>
                             </a>
                             <a
                                 href="https://linkedin.com/in/vishwajith-j-736652248"
-                                class="social-btn black-icon"
+                                class="hero-social-btn"
                                 target="_blank"
                             >
                                 <i class="fab fa-linkedin"></i>
                             </a>
                             <a
                                 href="https://mail.google.com/mail/?view=cm&fs=1&to=jvishwajith4@gmail.com"
-                                class="social-btn black-icon"
+                                class="hero-social-btn"
                                 target="_blank"
                             >
                                 <i class="fas fa-envelope"></i>
                             </a>
-                            <button class="resume-btn" id="download-resume">
+                            <button class="hero-resume-btn" id="download-resume">
                                 <i class="fas fa-download"></i>
                                 Download Resume
                             </button>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
@@ -502,76 +516,85 @@
         <!-- Contact Section -->
         <section id="contact" class="section-blue fade-in">
             <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-description">
-                    Get in touch for collaboration opportunities or discussions
-                    about data analytics.
-                </p>
                 <div class="contact-wrapper">
+                    <div class="contact-copy">
+                        <h2 class="contact-title">Contact</h2>
+                        <p class="contact-message">
+                            The best work happens when the right people connect &mdash;
+                            the right collaboration begins with a simple message.
+                        </p>
+                    </div>
+
                     <div class="contact-container">
-                        <div class="contact-item sliding-card">
+                        <a href="tel:+919790228681" class="contact-item sliding-card">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-info">
                                 <h4>Phone</h4>
-                                <a href="tel:+919790228681">+91 9790228681</a>
+                                <span>+91 9790228681</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="contact-item sliding-card">
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=jvishwajith4@gmail.com"
+                            class="contact-item sliding-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-info">
                                 <h4>Email</h4>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jvishwajith4@gmail.com" target="_blank"
-                                    >jvishwajith4@gmail.com</a
-                                >
+                                <span>jvishwajith4@gmail.com</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="contact-item sliding-card">
+                        <a
+                            href="https://wa.me/919790228681"
+                            class="contact-item sliding-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div class="contact-icon">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div class="contact-info">
                                 <h4>WhatsApp</h4>
-                                <a
-                                    href="https://wa.me/919790228681"
-                                    target="_blank"
-                                    >+91 9790228681</a
-                                >
+                                <span>+91 9790228681</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="contact-item sliding-card">
+                        <a
+                            href="https://github.com/jvishwajith"
+                            class="contact-item sliding-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div class="contact-icon">
                                 <i class="fab fa-github"></i>
                             </div>
                             <div class="contact-info">
                                 <h4>GitHub</h4>
-                                <a
-                                    href="https://github.com/jvishwajith"
-                                    target="_blank"
-                                    >jvishwajith</a
-                                >
+                                <span>jvishwajith</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="contact-item sliding-card">
+                        <a
+                            href="https://linkedin.com/in/vishwajith-j-736652248"
+                            class="contact-item sliding-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="contact-info">
                                 <h4>LinkedIn</h4>
-                                <a
-                                    href="https://linkedin.com/in/vishwajith-j-736652248"
-                                    target="_blank"
-                                    >vishwajith-j</a
-                                >
+                                <span>vishwajith-j</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

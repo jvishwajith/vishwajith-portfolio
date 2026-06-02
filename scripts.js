@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Continuous animations for various elements
     function startContinuousAnimations() {
         // Profile picture animation
-        const profilePic = document.querySelector(".profile-frame");
+        const profilePic = document.querySelector(".profile-rings");
         if (profilePic) {
             setInterval(() => {
                 profilePic.style.animation = "none";
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const aboutDistance = scrollPosition - aboutOffset;
 
             if (aboutDistance > -500 && aboutDistance < 500) {
-                const profilePic = document.querySelector(".profile-frame");
+                const profilePic = document.querySelector(".profile-rings");
                 if (profilePic) {
                     profilePic.style.transform = `translateY(${aboutDistance * 0.05}px) rotate(${aboutDistance * 0.01}deg)`;
                 }
@@ -187,13 +187,47 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileNavLinks.classList.toggle("active");
     });
 
-    // Close mobile menu when clicking a link
+    function scrollToSection(targetId) {
+        const targetSection = document.querySelector(targetId);
+        const header = document.querySelector("header");
+
+        if (!targetSection || !header) {
+            return;
+        }
+
+        const headerHeight = header.offsetHeight;
+        const targetPosition =
+            targetSection.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+        window.scrollTo({
+            top: Math.max(targetPosition, 0),
+            behavior: "smooth",
+        });
+    }
+
+    // Close mobile menu and align sections cleanly below the fixed navbar.
     document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
+
+            if (targetId && targetId.startsWith("#")) {
+                event.preventDefault();
+                scrollToSection(targetId);
+                history.pushState(null, "", targetId);
+            }
+
             hamburger.classList.remove("active");
             mobileNavLinks.classList.remove("active");
         });
     });
+
+    if (window.location.hash) {
+        setTimeout(() => {
+            scrollToSection(window.location.hash);
+        }, 100);
+    }
 
     // Enhanced Notification System
     function showNotification(message, duration = 3000) {
