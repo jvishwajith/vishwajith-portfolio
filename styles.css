@@ -1,7 +1,7 @@
-/* Base Styles and Variables */
+/* Version 2 */
 :root {
-    --green: #1DB954; /* Spotify-like green */
-    --dark-blue: #00071a; /* Changed to black */
+    --green: #1DB954;
+    --dark-blue: #00071a;
     --white: #FFFFFF;
     --light-gray: #F5F5F5;
     --transition: all 0.3s ease;
@@ -40,38 +40,10 @@ section {
     padding: 52px 20px 72px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(0px); }
     100% { transform: translateY(0px); }
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 0 5px var(--green); }
-    50% { box-shadow: 0 0 20px var(--green); }
-    100% { box-shadow: 0 0 5px var(--green); }
 }
 
 @keyframes skillBarFill {
@@ -79,7 +51,6 @@ section {
     to { width: var(--percentage); }
 }
 
-/* Utility Classes */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -157,7 +128,6 @@ section {
     font-size: 1.1rem;
 }
 
-/* Navigation */
 header {
     position: fixed;
     top: 0;
@@ -241,12 +211,10 @@ header {
     transition: var(--transition);
 }
 
-/* Hero Section (Redesigned) */
 .hero-section {
     position: relative;
-    padding: 150px 0 100px; /* Padding for fixed header */
+    padding: 150px 0 100px;
     background-color: #ffffff;
-    /* Subtle grid background */
     background-image: 
         linear-gradient(rgba(29, 185, 84, 0.12) 1px, transparent 1px),
         linear-gradient(90deg, rgba(29, 185, 84, 0.12) 1px, transparent 1px);
@@ -276,7 +244,6 @@ header {
     padding-top: 0;
 }
 
-/* Profile Image Area */
 .hero-profile {
     flex: 0 0 auto;
     display: flex;
@@ -364,7 +331,6 @@ header {
 
 
 
-/* Typography & Content Area */
 .hero-text {
     flex: 1;
     min-width: 300px;
@@ -427,7 +393,6 @@ header {
     max-width: 540px;
 }
 
-/* Actions & Buttons */
 .hero-actions {
     display: flex;
     align-items: center;
@@ -479,7 +444,6 @@ header {
     box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
 }
 
-/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -543,7 +507,6 @@ header {
     }
 }
 
-/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -627,7 +590,6 @@ header {
     font-size: 1.1rem;
 }
 
-/* Internships Section */
 .internships-container {
     display: flex;
     flex-direction: column;
@@ -680,7 +642,6 @@ header {
     background-color: var(--dark-blue);
 }
 
-/* Skills and Certifications */
 .skills-certs-container {
     display: flex;
     flex-wrap: wrap;
@@ -788,7 +749,6 @@ header {
     color: var(--dark-blue);
 }
 
-/* Achievements Section */
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -890,7 +850,6 @@ header {
     background-color: var(--dark-blue);
 }
 
-/* Contact Section */
 .contact-wrapper {
     display: grid;
     grid-template-columns: minmax(280px, 0.85fr) minmax(420px, 1.15fr);
@@ -1001,15 +960,6 @@ header {
     color: var(--green);
 }
 
-/* Footer */
-footer {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    text-align: center;
-    padding: 20px;
-}
-
-/* Notification */
 #notification-container {
     position: fixed;
     z-index: 1000;
@@ -1056,7 +1006,6 @@ footer {
     font-weight: bold;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 991px) {
     .nav-links {
         position: fixed;
@@ -1099,15 +1048,6 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
@@ -1120,21 +1060,11 @@ footer {
     .contact-copy {
         max-width: 680px;
     }
-
-    /* Timeline styles removed - now using achievement grid layout */
 }
 
 @media screen and (max-width: 768px) {
     .section-title {
         font-size: 2rem;
-    }
-
-    .about-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .about-text h2 {
-        font-size: 1.5rem;
     }
 
     .contact-title {
@@ -1157,19 +1087,6 @@ footer {
 @media screen and (max-width: 480px) {
     .container {
         padding: 44px 15px 60px;
-    }
-
-    .profile-frame, .profile-pic {
-        width: 200px;
-        height: 200px;
-    }
-
-    .about-text h1 {
-        font-size: 2rem;
-    }
-
-    .about-text h2 {
-        font-size: 1.2rem;
     }
 
     #notification-container {
