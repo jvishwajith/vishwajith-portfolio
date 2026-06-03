@@ -149,7 +149,7 @@ header {
 .logo {
     font-family: 'Syne', sans-serif;
     color: var(--white);
-    font-size: 28px;
+    font-size: 23px;
     font-weight: 700;
 }
 
@@ -476,34 +476,54 @@ header {
     background-color: var(--green);
     animation: scrollLine 2s infinite;
 }
-
-@keyframes scrollLine {
+@keyframes scrollLine {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(200%); }
 }
 
 @media screen and (max-width: 800px) {
+    .hero-section {
+        padding: 120px 0 60px;
+        min-height: auto;
+    }
+
     .hero-content {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
+    .profile-rings {
+        width: 260px;
+        height: 260px;
+    }
+
     .hero-name {
-        font-size: 3rem;
+        font-size: 2.6rem;
         white-space: normal;
+        margin-bottom: 12px;
     }
     
+    .hero-role {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0 auto 25px auto;
+    }
+
     .hero-actions {
         justify-content: center;
-    }
-    
-    .hero-description {
-        margin: 0 auto 30px auto;
+        gap: 12px;
     }
     
     .hero-resume-btn {
         margin-left: 0;
+        padding: 11px 22px;
+        font-size: 0.95rem;
     }
 }
 
@@ -651,7 +671,7 @@ header {
 .skills-container, 
 .certifications-container {
     flex: 1;
-    min-width: 300px;
+    min-width: 260px;
 }
 
 .skills-container h3,
@@ -1007,6 +1027,14 @@ header {
 }
 
 @media screen and (max-width: 991px) {
+    #navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
     .nav-links {
         position: fixed;
         top: -100%;
@@ -1049,7 +1077,7 @@ header {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     }
 
     .contact-wrapper {
@@ -1092,5 +1120,39 @@ header {
     #notification-container {
         bottom: 20px;
         right: 20px;
+    }
+
+    .hero-section {
+        padding: 100px 0 50px;
+    }
+
+    .profile-rings {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hero-name {
+        font-size: 2.1rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-role {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .hero-resume-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        font-size: 19px;
     }
 }
