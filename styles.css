@@ -42,10 +42,7 @@ section {
 
 
 
-@keyframes skillBarFill {
-    from { width: 0; }
-    to { width: var(--percentage); }
-}
+
 
 .fade-in {
     opacity: 0;
@@ -709,11 +706,7 @@ header {
     background-color: var(--green);
     border-radius: 5px;
     width: 0;
-    animation: none;
-}
-
-.skill-item.active .skill-progress-bar {
-    animation: skillBarFill 1.5s forwards ease-out;
+    transition: width 1.5s ease-out;
 }
 
 .certification-items {

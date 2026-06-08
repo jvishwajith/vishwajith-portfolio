@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Handle skill bar animation deferral
                         if (entry.target.classList.contains("skill-item")) {
                             const bar = entry.target.querySelector(".skill-progress-bar");
-                            if (bar) bar.style.animation = "skillBarFill 1.5s forwards ease-out";
+                            if (bar && bar.dataset.width) bar.style.width = bar.dataset.width;
                         }
                     },
                     150 *
@@ -106,12 +106,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const skillBarsAnim = document.querySelectorAll(".skill-progress-bar");
         setInterval(() => {
             skillBarsAnim.forEach((bar) => {
-                const width = bar.style.width;
-                bar.style.width = "0";
-
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
+                const targetWidth = bar.dataset.width;
+                if (targetWidth) {
+                    bar.style.width = "0";
+                    setTimeout(() => {
+                        bar.style.width = targetWidth;
+                    }, 100);
+                }
             });
         }, 10000);
     }, 2000);
@@ -283,8 +284,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function setSkillBarWidth() {
         skillBars.forEach((bar) => {
-            const width = bar.style.width;
-            bar.style.setProperty("--percentage", width);
+            if (!bar.dataset.width) {
+                bar.dataset.width = bar.style.width;
+            }
+            bar.style.width = "0";
         });
     }
 
