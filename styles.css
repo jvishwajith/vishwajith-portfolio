@@ -40,11 +40,7 @@ section {
     padding: 52px 20px 72px;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(0px); }
-    100% { transform: translateY(0px); }
-}
+
 
 @keyframes skillBarFill {
     from { width: 0; }
@@ -476,7 +472,8 @@ header {
     background-color: var(--green);
     animation: scrollLine 2s infinite;
 }
-@keyframes scrollLine {
+
+@keyframes scrollLine {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(200%); }
 }
@@ -499,8 +496,7 @@ header {
     }
 
     .hero-name {
-        font-size: 2.6rem;
-        white-space: normal;
+        font-size: clamp(1.8rem, 9vw, 2.6rem);
         margin-bottom: 12px;
     }
     
@@ -713,6 +709,10 @@ header {
     background-color: var(--green);
     border-radius: 5px;
     width: 0;
+    animation: none;
+}
+
+.skill-item.active .skill-progress-bar {
     animation: skillBarFill 1.5s forwards ease-out;
 }
 
@@ -1117,11 +1117,6 @@ header {
         padding: 44px 15px 60px;
     }
 
-    #notification-container {
-        bottom: 20px;
-        right: 20px;
-    }
-
     .hero-section {
         padding: 100px 0 50px;
     }
@@ -1131,10 +1126,7 @@ header {
         height: 210px;
     }
 
-    .hero-name {
-        font-size: 2.1rem;
-        margin-bottom: 10px;
-    }
+
 
     .hero-role {
         font-size: 1.2rem;

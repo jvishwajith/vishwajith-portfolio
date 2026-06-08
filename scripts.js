@@ -82,6 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(
                     () => {
                         entry.target.classList.add("active");
+                        
+                        // Handle skill bar animation deferral
+                        if (entry.target.classList.contains("skill-item")) {
+                            const bar = entry.target.querySelector(".skill-progress-bar");
+                            if (bar) bar.style.animation = "skillBarFill 1.5s forwards ease-out";
+                        }
                     },
                     150 *
                         Array.from(entry.target.parentNode.children).indexOf(
@@ -92,23 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, observerOptions);
 
-    document.querySelectorAll(".sliding-card").forEach((card) => {
+    document.querySelectorAll(".sliding-card, .skill-item").forEach((card) => {
         cardObserver.observe(card);
     });
 
-    function startContinuousAnimations() {
-        const profilePic = document.querySelector(".profile-rings");
-        if (profilePic) {
-            setInterval(() => {
-                profilePic.style.animation = "none";
-                void profilePic.offsetWidth;
-                profilePic.style.animation = "float 6s ease-in-out infinite";
-            }, 6000);
-        }
-
-        const skillBars = document.querySelectorAll(".skill-progress-bar");
+    setTimeout(() => {
+        const skillBarsAnim = document.querySelectorAll(".skill-progress-bar");
         setInterval(() => {
-            skillBars.forEach((bar) => {
+            skillBarsAnim.forEach((bar) => {
                 const width = bar.style.width;
                 bar.style.width = "0";
 
@@ -117,41 +114,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 100);
             });
         }, 10000);
+    }, 2000);
 
-        const projectCards = document.querySelectorAll(".project-card");
-        projectCards.forEach((card, index) => {
-            setInterval(
-                () => {
-                    card.style.transform = "translateY(-5px)";
-                    setTimeout(() => {
-                        card.style.transform = "translateY(0)";
-                    }, 500);
-                },
-                5000 + index * 1000,
-            );
-        });
-    }
-
-    setTimeout(startContinuousAnimations, 2000);
+    const aboutSection = document.querySelector("#about");
+    const profilePic = document.querySelector(".profile-rings");
+    let scrollTicking = false;
 
     window.addEventListener("scroll", function () {
-        const scrollPosition = window.scrollY;
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                const scrollPosition = window.scrollY;
 
-        const aboutSection = document.querySelector("#about");
-        if (aboutSection) {
-            const aboutOffset = aboutSection.offsetTop;
-            const aboutDistance = scrollPosition - aboutOffset;
+                if (aboutSection && profilePic) {
+                    const aboutOffset = aboutSection.offsetTop;
+                    const aboutDistance = scrollPosition - aboutOffset;
 
-            if (aboutDistance > -500 && aboutDistance < 500) {
-                const profilePic = document.querySelector(".profile-rings");
-                if (profilePic) {
-                    profilePic.style.transform = `translateY(${aboutDistance * 0.05}px) rotate(${aboutDistance * 0.01}deg)`;
+                    if (aboutDistance > -500 && aboutDistance < 500) {
+                        profilePic.style.transform = `translateY(${aboutDistance * 0.05}px) rotate(${aboutDistance * 0.01}deg)`;
+                    }
                 }
-            }
-        }
 
-        updateActiveNavlink();
-    });
+                updateActiveNavlink();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true });
 
     const hamburger = document.querySelector(".hamburger");
     const mobileNavLinks = document.querySelector(".nav-links");
@@ -230,64 +218,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }, duration);
     }
 
-    const repoButtons = document.querySelectorAll(".repo-btn");
-    const certButtons = document.querySelectorAll(".certificate-btn");
-    const allCertBtn = document.querySelectorAll(".view-all-cert-btn");
-    const viewAchievementBtn = document.querySelector(
-        ".view-all-achievement-btn",
-    );
+    document.addEventListener("click", function (event) {
+        const button = event.target.closest(".repo-btn, .certificate-btn, .view-all-cert-btn, .view-all-achievement-btn");
+        
+        if (!button) return;
 
-    repoButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            const repoName = this.getAttribute("data-name");
-            const repoUrl = this.getAttribute("data-repo-url");
-            
-            if (repoUrl && repoUrl.trim() !== "") {
-                window.open(repoUrl, "_blank");
-            } else {
-                showNotification(`${repoName} will be updated soon`, 3000);
-            }
-        });
+        const name = button.getAttribute("data-name");
+        const url = button.getAttribute("data-repo-url") || button.getAttribute("data-cert-url");
+        
+        if (url && url.trim() !== "") {
+            window.open(url, "_blank");
+        } else {
+            showNotification(`${name} will be updated soon`, 3000);
+        }
     });
-
-    certButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            const certName = this.getAttribute("data-name");
-            const certUrl = this.getAttribute("data-cert-url");
-            
-            if (certUrl && certUrl.trim() !== "") {
-                window.open(certUrl, "_blank");
-            } else {
-                showNotification(`${certName} will be updated soon`, 3000);
-            }
-        });
-    });
-
-    allCertBtn.forEach((button) => {
-        button.addEventListener("click", function () {
-            const certName = this.getAttribute("data-name");
-            const certUrl = this.getAttribute("data-cert-url");
-            
-            if (certUrl && certUrl.trim() !== "") {
-                window.open(certUrl, "_blank");
-            } else {
-                showNotification(`${certName} will be updated soon`, 3000);
-            }
-        });
-    });
-
-    if (viewAchievementBtn) {
-        viewAchievementBtn.addEventListener("click", function () {
-            const achName = this.getAttribute("data-name");
-            const certUrl = this.getAttribute("data-cert-url");
-            
-            if (certUrl && certUrl.trim() !== "") {
-                window.open(certUrl, "_blank");
-            } else {
-                showNotification(`${achName} will be updated soon`, 3000);
-            }
-        });
-    }
 
     document
         .getElementById("download-resume")
@@ -329,11 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (link.getAttribute("href") === `#${currentSection}`) {
                 link.classList.add("active");
-
-                link.style.transform = "translateY(-3px)";
-                setTimeout(() => {
-                    link.style.transform = "";
-                }, 300);
             }
         });
     }
