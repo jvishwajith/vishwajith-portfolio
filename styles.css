@@ -1,4 +1,4 @@
-/* Version 2 */
+/* Version 5 */
 :root {
     --green: #1DB954;
     --dark-blue: #00071a;
@@ -39,10 +39,6 @@ section {
     margin: 0 auto;
     padding: 52px 20px 72px;
 }
-
-
-
-
 
 .fade-in {
     opacity: 0;
@@ -208,7 +204,7 @@ header {
     position: relative;
     padding: 150px 0 100px;
     background-color: #ffffff;
-    background-image: 
+    background-image:
         linear-gradient(rgba(29, 185, 84, 0.12) 1px, transparent 1px),
         linear-gradient(90deg, rgba(29, 185, 84, 0.12) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -471,14 +467,20 @@ header {
 }
 
 @keyframes scrollLine {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(200%); }
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(200%);
+    }
 }
 
 @media screen and (max-width: 800px) {
     .hero-section {
-        padding: 120px 0 60px;
-        min-height: auto;
+        padding: 120px 0 80px;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .hero-content {
@@ -486,7 +488,7 @@ header {
         text-align: center;
         gap: 1.5rem;
     }
-    
+
     .profile-rings {
         width: 260px;
         height: 260px;
@@ -496,7 +498,7 @@ header {
         font-size: clamp(1.8rem, 9vw, 2.6rem);
         margin-bottom: 12px;
     }
-    
+
     .hero-role {
         font-size: 1.4rem;
         margin-bottom: 18px;
@@ -512,7 +514,7 @@ header {
         justify-content: center;
         gap: 12px;
     }
-    
+
     .hero-resume-btn {
         margin-left: 0;
         padding: 11px 22px;
@@ -661,7 +663,7 @@ header {
     gap: 40px;
 }
 
-.skills-container, 
+.skills-container,
 .certifications-container {
     flex: 1;
     min-width: 260px;
@@ -1111,7 +1113,9 @@ header {
     }
 
     .hero-section {
-        padding: 100px 0 50px;
+        padding: 100px 0 80px;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .profile-rings {
@@ -1136,7 +1140,7 @@ header {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
-    
+
     .logo {
         font-size: 19px;
     }
