@@ -333,7 +333,7 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--green);
+    color: var(--dark-blue);
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -344,7 +344,7 @@ header {
 .badge-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--green);
+    background-color: var(--dark-blue);
     border-radius: 50%;
 }
 
@@ -367,11 +367,12 @@ header {
     text-rendering: optimizeLegibility;
 }
 
-.hero-role {
-    font-size: 1.65rem;
-    color: #6a7c92;
-    font-weight: 500;
-    margin-bottom: 25px;
+.hero-tagline {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 0;
 }
 
 .hero-description {
@@ -393,9 +394,9 @@ header {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: var(--white);
-    color: #6a7c92;
-    border: 1px solid #dcdfe4;
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -405,16 +406,18 @@ header {
 }
 
 .hero-social-btn:hover {
-    color: var(--green);
-    border-color: var(--green);
+    color: var(--white);
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
     transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 7, 26, 0.25);
 }
 
 .hero-resume-btn {
-    padding: 13px 26px;
-    background-color: var(--green);
-    color: var(--white);
-    border: none;
+    padding: 12px 26px;
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
     border-radius: 25px;
     font-weight: 600;
     font-size: 1.05rem;
@@ -424,13 +427,13 @@ header {
     align-items: center;
     gap: 10px;
     margin-left: 10px;
-    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
 }
 
 .hero-resume-btn:hover {
-    background-color: #169b45;
+    background-color: var(--dark-blue);
+    color: var(--white);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 7, 26, 0.25);
 }
 
 .scroll-indicator {
@@ -499,9 +502,10 @@ header {
         margin-bottom: 12px;
     }
 
-    .hero-role {
-        font-size: 1.4rem;
-        margin-bottom: 18px;
+    .hero-tagline {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0 auto;
     }
 
     .hero-description {
@@ -1125,9 +1129,10 @@ header {
 
 
 
-    .hero-role {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+    .hero-tagline {
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin-bottom: 0;
     }
 
     .hero-description {
